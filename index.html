@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Few Questions for You ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:24px 14px;background:#fff3f6;font-family:Arial,sans-serif;color:#352532}
+.container{max-width:650px;margin:auto;background:white;padding:25px;border-radius:20px;box-shadow:0 5px 25px #00000012}
+h1{text-align:center;color:#c04472}
+.intro{text-align:center;line-height:1.6;color:#765968}
+.notice{background:#fff0f5;padding:13px;border-radius:12px;font-size:14px;line-height:1.5}
+label.name{display:block;font-weight:bold;margin:22px 0 8px}
+input[type=text]{width:100%;padding:13px;border:1px solid #e5cbd6;border-radius:10px;font-size:16px}
+.question{padding:16px 0;border-bottom:1px solid #f1e5eb}
+.question p{font-weight:bold;margin:0 0 12px;line-height:1.5}
+.option{display:block;padding:8px 0;line-height:1.4}
+.option input{margin-right:9px;accent-color:#c04472}
+button{width:100%;padding:15px;border:0;border-radius:12px;background:#c04472;color:white;font-size:17px;font-weight:bold;margin-top:22px}
+small{display:block;text-align:center;color:#927b88;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>A Few Questions for You ❤️</h1>
+<p class="intro">I'd love to know you a little better. Be honest, be yourself, and enjoy answering. There's no pressure to answer anything you're uncomfortable with.</p>
+<div class="notice">💕 Your answers will be sent to the person who shared this questionnaire with you. Please answer only what you're comfortable sharing.</div>
+
+<form action="https://formsubmit.co/YOUR_EMAIL_ADDRESS" method="POST">
+<input type="hidden" name="_subject" value="New questionnaire answers ❤️">
+
+<label class="name" for="friend">Your name</label>
+<input id="friend" type="text" name="Friend's name" placeholder="Enter your name" required>
+
+<div id="questions"></div>
+<button type="submit">Send my answers ❤️</button>
+</form>
+<small>Made with ❤️</small>
+</div>
+
+<script>
+const questions = [
+["What matters most to you in a friendship?",["Trust","Loyalty","Honesty","Understanding"]],
+["What makes you feel appreciated?",["Kind words","Time and attention","Small thoughtful actions","Being supported"]],
+["What is your biggest relationship fear?",["Being betrayed","Being abandoned","Not being understood","Losing myself"]],
+["How do you show someone you care?",["I check on them","I spend time with them","I help them","I tell them"]],
+["What do you value most in a partner?",["Honesty","Respect","Love and affection","Good communication"]],
+["When you're upset, what do you prefer?",["Someone listens","Someone gives me space","Someone comforts me","I deal with it alone"]],
+["What describes your personality best?",["Quiet and thoughtful","Funny and outgoing","Sensitive and caring","Independent and confident"]],
+["What is something you find difficult?",["Trusting people","Expressing feelings","Letting go","Asking for help"]],
+["What makes you lose trust in someone?",["Lying","Disrespect","Betrayal","Broken promises"]],
+["Do you believe in second chances?",["Yes, everyone deserves one","Only if they change","It depends on what happened","No, some things are unforgivable"]],
+["What is your biggest dream?",["A happy family","Financial freedom","A successful career","Peace and happiness"]],
+["What do you usually hide from people?",["My sadness","My fears","My true feelings","Nothing, I'm open"]],
+["What do you need most from people close to you?",["Honesty","Patience","Loyalty","Understanding"]],
+["What would you rather have?",["A peaceful life","A life full of adventure","A loving relationship","Success and wealth"]],
+["How would you describe our connection?",["A special friendship","A strong bond","Something I want to understand better","I'm still figuring it out"]]
+];
+
+const area = document.getElementById("questions");
+questions.forEach((q,i)=>{
+  const section=document.createElement("div");
+  section.className="question";
+  const p=document.createElement("p");
+  p.textContent=(i+1)+". "+q[0];
+  section.appendChild(p);
+  q[1].forEach(answer=>{
+    const label=document.createElement("label");
+    label.className="option";
+    const radio=document.createElement("input");
+    radio.type="radio";
+    radio.name="Question "+(i+1)+": "+q[0];
+    radio.value=answer;
+    radio.required=true;
+    label.appendChild(radio);
+    label.appendChild(document.createTextNode(answer));
+    section.appendChild(label);
+  });
+  area.appendChild(section);
+});
+</script>
+</body>
+  </html>
+    
